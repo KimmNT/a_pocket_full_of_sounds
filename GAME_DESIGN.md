@@ -3,7 +3,7 @@
 ## Project record
 
 - Project abbreviation: APFS.
-- Version: 0.16.
+- Version: 0.18.
 - Updated: 2026-11-10 (Asia/Bangkok).
 - Project folder: `C:\Users\JoseKim\Desktop\APFS`.
 - Stage: story and gameplay design; no game implementation or performance testing yet.
@@ -30,6 +30,8 @@ Do not convert a proposal into a confirmed requirement merely because it appears
 - Sound is part of the world's life and energy.
 - Eight play rounds: seven note-recovery mini-games and one final battle.
 - Each note guardian has its own battle style.
+- Confirmed order: 1 Blow the Candle; 2 Press to Find Matching Sounds; 3 The Starving Monster's Meal (revised Pepper Soup); 4 The Backwards Vacuum; 5 The Shell Game. Guardians 6 and 7 and final-battle mechanics remain unselected.
+- Failure restarts the current encounter from its beginning, including all stages, without intermediate checkpoints. Keep games straightforward and give warnings before dangerous or irreversible consequences.
 - There are only seven unique natural-note energies. Each of the seven note guardians holds one; its other note stock consists of sharp notes. Do not introduce extra recoverable natural notes for a mini-game.
 - Latest ideation preference: suggest non-musical challenges. Musical atmosphere and natural-note recovery remain part of the world, but the remaining games do not have to test songs, sound, note names, or melody.
 - Maintain tension through an outward journey. Do not require repeated playable returns to the village between rounds.
@@ -41,28 +43,28 @@ Do not convert a proposal into a confirmed requirement merely because it appears
 
 The village lives on sound. Seven unique natural notes energize its life. Each of seven note-holding monsters possesses one stolen natural note; its other note stock consists of sharp notes. The eighth monster is the final-battle boss, not the holder of an additional eighth natural note.
 
-On a night of heavy rain, eight monsters steal all seven notes. The village falls into darkness. A further threat is approaching, capable of taking the world down.
+On a night of heavy rain, eight monsters steal all seven notes. The lantern stops illuminating the world because its seven natural notes are missing. Instruments are left with sharp notes; they cannot freely reproduce the stolen natural pitches. A further threat is approaching, capable of taking the world down.
 
 Our character sets out to recover the notes. Each of the first seven rounds is a mini-game whose victory recovers one note. The village gradually regains its sound and light.
 
 After all seven notes are recovered, the village celebrates. Gray clouds cover the sun, heavy rain returns, and the eighth boss arrives with its entire army. Round eight is the final battle.
 
-One guardian, the starving monster in the revised cooking encounter, stole its note because the final boss threatened its family's lives. If the player saves it with the correct meal, it thanks the player, voluntarily gives up the note, and explains the coercion. This motive is confirmed for that monster only; do not automatically apply it to every guardian or the entire army.
+The final boss is the Monster King, the most powerful monster in the world. All seven guardians serve him under threat of death for refusing his service. Personal loyalties differ: some also respect him, while some are good monsters forced to steal. Specific assignments remain OPEN except for the starving guardian, whose family was threatened. Saving that monster earns its voluntary note gift and reveals this coercion. Do not assume all guardians are unwilling or that the army shares one motive.
 
 ### PROPOSED narrative details
 
-- The final boss commands the seven note guardians; its exact relationship to them can be developed further. One natural note per guardian is now explicitly confirmed.
+- Develop the individual guardian stories in section 16. The king's authority and mixed loyalties are confirmed, but new individual backstories are not yet chosen.
 - Pip is a suggested protagonist name, not a confirmed name.
 - The final battle could combine actions learned in the earlier encounters.
 
 ### OPEN narrative details
 
 - Protagonist identity, appearance, and final name.
-- Monster names, motives, and relationships.
+- Monster names, individual loyalty/coercion assignments beyond the starving guardian, the king's theft motive, and army motives.
 - Location of the final battle and whether the character returns home once at the end.
 - How the army is represented and what happens after victory.
-- Exact seven-note naming scheme and recovery order. C is specified for the candle encounter; mapping all notes to C D E F G A B is not yet confirmed.
-- Whether ordinary instruments can imitate natural pitches without creating the unique natural-note energy is not defined. Do not quietly create extra natural-note resources to make a musical puzzle work. Reconcile the existing basement password example with the confirmed one-note-per-guardian rule before implementation.
+- Reward pitches for encounters 2-7 and exact naming scheme. Order 1-5 is confirmed; C remains the candle reward.
+- Instruments lose the stolen natural pitches and retain sharp notes. The old basement password uses C, G, and B, so its sequence/playback rules need revision. Which recovered natural pitches return to instruments, and when, remains OPEN; do not assume unrestricted reproduction or extra natural-note resources.
 
 ## 3. Notes and village lantern
 
@@ -78,7 +80,7 @@ PROPOSED visual treatment: simple translucent cartoon wisps or air swirls confin
 
 - The character can absorb recovered notes.
 - A lantern at the village has seven note slots.
-- Absorbing a note remotely restores its corresponding lantern slot.
+- Absorbing an airy note grants one pocket-tunnel charge, then sends the note directly to its lantern slot and restores it. The note does not stay in the character.
 - The village recovers without the character traveling back and forth.
 
 ### CONFIRMED pocket tunnel ability
@@ -91,12 +93,12 @@ PROPOSED visual treatment: simple translucent cartoon wisps or air swirls confin
 - Repeated unsuccessful use makes the character angry and then sleep for five seconds, as a comic consequence. Exact trigger count and reset rules remain OPEN.
 - Sharp-note decoys do not activate the tunnel.
 
-Successful absorption now explicitly grants an escape use. PROPOSED global restriction: only a new absorption grants that use, rather than any previously stored natural note powering unlimited escapes. Use a pulse of the note's power without consuming the recovered note so the village lantern stays restored. General activation rules, allowed destinations, automatic versus manual escape, and use outside this encounter remain OPEN.
+CONFIRMED: each newly absorbed natural note grants one tunnel charge and then travels straight to the lantern. Spend that charge on the encounter's predefined escape scene; recovered notes are not stored as reusable escape batteries. Entry into each monster's place also uses a predefined scene. This is a simple transition system, not free destination selection. Entry scenes are not confirmed to use the tunnel or require a charge. Exact entry/exit staging and whether one final activation input starts the escape scene remain OPEN.
 
 ### PROPOSED explanation and presentation
 
-- A magical bond connects the character and lantern. The note stays in the character while its music reaches home.
-- Each absorbed note appears as a glowing cartoon mark on the character.
+- A visible trail could show the confirmed direct transfer of the note to the lantern after granting a tunnel charge; exact visuals are proposed.
+- A brief glow could signal the single charge; permanent stored-note marks are not confirmed.
 - Short, wordless village scenes show one lantern chamber lighting and something recovering.
 - Each recovered note adds a musical layer to the soundtrack.
 - Additional note-specific abilities remain optional. Absorption and the natural-note-powered pocket tunnel are confirmed, but there is no established wider ability progression system.
@@ -137,16 +139,16 @@ Microphone loudness is an estimate of breath strength, not a direct measurement 
 
 | Encounter | Reward | Current status |
 | --- | --- | --- |
-| Blow the Candle | Note C | User concept recorded; tuning and round placement open |
-| Press to Find Matching Sounds | Natural note, pitch not assigned | Countdown piano lock; randomized shelf search; area-based ABSORB/COLLECT; earned tunnel escape; repeated empty attempts cause a five-second sleep; no chase |
-| Pepper Soup - revised starving-monster meal | Natural note, pitch not assigned | CONFIRMED user revision: eight ingredients, exact cooking order, lethal wrong meal, compassionate success, family-coercion reveal |
-| The Backwards Vacuum | Natural note, pitch not assigned | Three stacked puzzles conceal a reverse switch; sleeping monster; wake-up button scripts a column falling straight onto its head; monster activates reversed machine; overloaded ejection recoils it into the wall, knocking it unconscious; absorption animation and tunnel escape |
-| The Shell Game | Natural note, pitch not assigned | Three-shell mixing machine; observe the shuffle; wrong choice triggers an ambulance-like alarm; first two returns: attitude, search, and note reset while player hides; third return: guaranteed capture even when hidden |
+| 1. Blow the Candle | Note C | First encounter confirmed; tuning open |
+| 2. Press to Find Matching Sounds | Natural note, pitch not assigned | Countdown piano lock; randomized shelf search; area-based ABSORB/COLLECT; earned tunnel escape; repeated empty attempts cause a five-second sleep; no chase |
+| 3. Pepper Soup - revised starving-monster meal | Natural note, pitch not assigned | CONFIRMED user revision: eight ingredients, exact cooking order, lethal wrong meal, compassionate success, family-coercion reveal |
+| 4. The Backwards Vacuum | Natural note, pitch not assigned | Three stacked puzzles conceal a reverse switch; sleeping monster; wake-up button scripts a column falling straight onto its head; monster activates reversed machine; overloaded ejection recoils it into the wall, knocking it unconscious; absorption animation and tunnel escape |
+| 5. The Shell Game | Natural note, pitch not assigned | Three-shell mixing machine; observe the shuffle; wrong choice triggers an ambulance-like alarm; first two returns: attitude, search, and note reset while player hides; third return: guaranteed capture even when hidden |
 | Guardian slot 6 | Sixth natural note, pitch not assigned | The Crumbling Maze proposed; not selected |
 | Guardian slot 7 | Seventh natural note, pitch not assigned | The Ink Painter proposed; not selected |
 | Final boss and army, round 8 | Defend the recovered world; no eighth note | The Storm Engine proposed as a three-phase finale; not selected |
 
-Five encounter concepts are selected: Blow the Candle, Press to Find Matching Sounds, the revised Pepper Soup, The Backwards Vacuum, and The Shell Game. The order of those five, their reward assignments except candle C, and their detailed tuning are not finalized. Two guardian concepts and the final battle still need selection. Slot numbers 6 and 7 above are planning placeholders, not a confirmed play order.
+Five encounter concepts are selected in confirmed order: 1 Blow the Candle, 2 Press to Find Matching Sounds, 3 The Starving Monster's Meal (revised Pepper Soup), 4 The Backwards Vacuum, and 5 The Shell Game. Reward assignments except candle C and detailed tuning remain OPEN. Two guardians and final-battle mechanics still need selection; The Crumbling Maze, The Ink Painter, and The Storm Engine remain proposals.
 
 On 2026-10-23 the user requested non-musical alternatives, approved The Backwards Vacuum and The Shell Game, and replaced the pepper/sneeze premise with an eight-ingredient meal for a starving monster. Section 8 records these accepted concepts, two new guardian proposals, a proposed finale, and parked alternatives. Do not count parked ideas as extra rounds.
 
@@ -189,7 +191,7 @@ Suitable for a lightweight 2D browser implementation. Use a cave background, cha
 | Player changes browser tab | Pause on focus loss; base timers on elapsed time, not rendered frame counts |
 | Note absorption and detection occur together | Commit successful absorption before another detection event can cause failure |
 
-All adjustments above are proposals unless the user explicitly finalizes them. Exact relighting cadence, suspicion behavior, detection window, failure penalty, and checkpoints are OPEN.
+All adjustments above are proposals unless the user explicitly finalizes them. Exact relighting cadence, suspicion behavior, detection window, and failure presentation are OPEN. Failure restarts the entire candle encounter.
 
 ## 7. Press to Find Matching Sounds
 
@@ -197,7 +199,9 @@ All adjustments above are proposals unless the user explicitly finalizes them. E
 
 A monster keeps a stolen natural note in its basement. The character watches the monster leave the basement and play a melody to lock it. Each played note is heard and its name is displayed. The user's example is `C, D#, G, A#, B, B`; it is an example, not a finalized password or length.
 
-OPEN lore consistency following the latest clarification: that example uses several different natural-note names, while the guardian owns only one natural-note energy. Keep the user's lock concept, but resolve the sound/resource rule before implementation. Possible adaptations are to compose the password from that guardian's one natural note plus sharp notes, or to distinguish reproduced instrument pitches from unique physical note energies. Neither interpretation has been chosen. Do not silently delete the established lock or assume it creates additional recoverable notes.
+CONFIRMED lore update: instruments lose stolen natural pitches, leaving sharp notes. The historical example `C, D#, G, A#, B, B` therefore needs revision before use. Keep the named demonstration and unlabeled twelve-key lock. Exact password and unavailable-white-key behavior remain OPEN, including whether recovered C becomes available by encounter 2. Do not silently remove keys, add labels, fabricate missing pitches, or assume the guardian can play other stolen natural notes.
+
+PROPOSED lore-compatible password: use only the five sharp pitches C#, D#, F#, G#, and A#. Example: `C#, F#, G#, D#, A#, A#`. This is a melodic option discussed with the user, not a selected final sequence. Keep all twelve unlabeled piano keys; behavior when an unavailable white key is pressed remains OPEN. Do not assume the optional earlier recovered C is needed for this password.
 
 After the monster leaves, the character can approach the door and click its lock without alerting the monster. The lock opens a piano-style keyboard with seven white keys and five black keys. The lock has no note-name labels. The player must reproduce the remembered melody on that unlabeled keyboard using the sounds, shown names from the demonstration, and their knowledge or discovery of key positions.
 
@@ -213,7 +217,7 @@ The character must move to a column to play the notes in that column, then move 
 
 The notes are airy forms trapped by the monster's sucking ability or a device supplied by the final boss. The player presses an ABSORB or COLLECT button; the character takes out the pocket tunnel and reveals a particular absorption area. If the natural note is inside, it pops/disappears into the tunnel and the character gains a tunnel escape use. If the target is outside the area or no natural note is present, the character reacts that there is nothing to absorb. Repeating unsuccessful absorptions makes the character angry and then fall asleep for five seconds. The user wants this to be funny.
 
-The area-based button mechanic supersedes the earlier automatic collection on note click. Whether a successful absorption automatically plays escape or instead grants a manually triggered escape action is not yet settled.
+The area-based button mechanic supersedes the earlier automatic collection on note click. Escape uses the predefined scene; whether it starts immediately after absorption or after one final activation remains OPEN.
 
 The intended target is now confirmed to be a natural note; the earlier phrase "major note" is superseded. The exact reward pitch has not been assigned.
 
@@ -245,7 +249,7 @@ Judging note order without exact rhythm remains a PROPOSAL. Melody length, count
 4. Play a selected note and show its name. Auditioning any note, including a sharp decoy, does not itself collect it and does not count as a failed absorption.
 5. Position the character and, if aiming is used, the absorption area. Press ABSORB/COLLECT to take out the pocket tunnel and check that area. Natural note inside: pop, disappear, absorb, restore its lantern slot, and grant an escape use. No natural note inside: play the empty reaction and record an unsuccessful absorption.
 6. Repeated unsuccessful absorptions escalate to anger and five seconds of sleep. Trigger count, time window, and input restrictions are not finalized.
-7. Use the earned tunnel escape. Automatic escape versus a separate action, tunnel destination, and when the basement timer stops are OPEN.
+7. Use the earned tunnel escape. Use the fixed encounter escape scene; final activation input, scene staging, and when the timer stops remain OPEN.
 
 PROPOSED: begin the basement countdown once the room and controls are ready; choose a separate full basement time budget rather than silently carrying over the door's remaining time. The exact timing relationship between the two phases has not been explicitly decided.
 
@@ -296,10 +300,10 @@ PROPOSED presentation and rules:
 | Legitimate sharp-note auditions trigger the punishment | Count only failed ABSORB/COLLECT actions, not ordinary listening |
 | Sleep accidentally pauses the danger timer and becomes an exploit | Proposed: keep the basement countdown running through the five-second nap; confirm before implementation |
 | Capture and expiry happen together | Define a timestamp boundary, commit valid capture once, and decide whether the timer continues until a separate escape action |
-| An earlier natural note permits unlimited early escapes | New absorption grants an escape use; proposed global rule prevents previously stored notes from granting new unlimited uses |
+| An earlier natural note permits unlimited early escapes | Each absorbed note grants one charge then travels to the lantern; spend the charge on the fixed encounter escape scene |
 | Right-click movement and the lock interface conflict | Use an explicit door interaction mode; define movement cancellation and out-of-range interactions consistently |
 | Player leaves the tab or audio is unavailable | Preload sounds and pause fairly so the player can hear and act when danger runs |
-| Escape returns to the village or skips later bosses | Choose a controlled tunnel exit along the outward journey. Destination and wider restrictions remain OPEN |
+| Escape returns to the village or skips later bosses | Use predefined escape and next-entry scenes in confirmed order; exact staging remains OPEN |
 
 ### PROPOSED technical structure
 
@@ -313,7 +317,7 @@ Schedule demonstration playback using the audio clock and synchronize displayed 
 
 ### OPEN decisions specific to this encounter
 
-- Assign the reward note and round placement.
+- Assign the reward note; this is confirmed encounter 2.
 - Choose melody length, octave/register policy, rhythm requirement, and replay/hint behavior. The six-note example is not yet a fixed password.
 - Set the door countdown and confirm the reading that a wrong-note input reset does not reset it.
 - Set the basement countdown and confirm whether it is a separate full budget.
@@ -321,22 +325,22 @@ Schedule demonstration playback using the audio clock and synchronize displayed 
 - Decide whether tested labels persist and whether a separate reference tone or name is useful.
 - Choose ABSORB versus COLLECT, zone shape/range/aim, preview behavior, and the exact capture-check moment. All shelf rows must remain reachable.
 - Set failed-absorption trigger count/time window, irritation feedback, and streak-reset rules. Sleep is fixed at five seconds; danger-timer and disabled-input behavior during sleep remain proposed.
-- Decide retry scope after a basement loss and whether random placement changes on retry.
-- Define the tunnel exit, general activation restrictions, automatic versus manual use of the earned escape, and when the basement timer stops. Note consumption is not intended by the proposal but not explicitly finalized globally.
+- Basement failure restarts the whole encounter from melody observation and the lock. Decide whether random placement changes on retry.
+- Stage the fixed exit scene, decide its final activation input and when the timer stops. Each note grants one charge then goes to the lantern; it is not stored in the character.
 - Choose the final-boss-provided capture device/ability and the visible trapped-air art treatment.
-- Reconcile the example password and playable keyboard with one unique natural-note energy per guardian. Ordinary pitch playback versus physical note-resource ownership remains undecided.
+- Revise the historical password and unavailable-white-key behavior to follow the confirmed missing-natural-pitches rule.
 
 ## 8. Additional guardians, final-battle proposals, and parked alternatives
 
 The Shell Game and The Backwards Vacuum are approved at concept level. Pepper Soup is approved in the user's revised form below; the old pepper-sneeze trick is superseded. The user now counts five selected games and requests two more guardian ideas plus one final-boss game. The Crumbling Maze, The Ink Painter, and The Storm Engine below are new PROPOSALS, not approved additions. Mirror Garden, Balance the Hoard, and the earlier musical ideas remain parked. There are still only seven note guardians and one final boss.
 
-Each guardian yields only its single stolen natural-note wisp. Use the established ABSORB/COLLECT mechanic when the note is made available; in the cooking encounter the monster releases it voluntarily after being saved. Do not invent extra natural notes. The final battle awards no eighth natural note. Music remains available for the soundtrack and recovery scenes, without being the new challenges' input mechanic. Pocket-tunnel rules remain subject to the open global decisions.
+Each guardian yields only its single stolen natural-note wisp. Use the established ABSORB/COLLECT mechanic when the note is made available; in the cooking encounter the monster releases it voluntarily after being saved. Do not invent extra natural notes. The final battle awards no eighth natural note. Music remains available for the soundtrack and recovery scenes, without being the new challenges' input mechanic. Each recovered note grants one tunnel charge then travels directly to the lantern; entry and escape scenes are predefined.
 
 ### Selected concept N1: The Shell Game - the noisy mixing machine
 
 CONFIRMED user revision (2026-11-10): the monster has a mixing machine. After it hides its single stolen natural note under one of three shells, the machine shuffles those shells so that the monster intends only itself to know the correct one. The player can discover it by observing the shuffling animation. This is visual tracking, not an impossible hidden or unobservable shuffle. The existing small note trap can remain a proposed way to contain the airy note beneath a shell; its exact presentation remains OPEN.
 
-Selecting the wrong shell makes the machine sound an ambulance-like alarm. The monster comes back to investigate, and the player must hide immediately. Each return has different comic expression text and attitude. CONFIRMED clarification: on the first two returns the monster shows its attitude, looks around for the cause, and puts the same natural note back into the machine. Hiding successfully allows the player to survive these two inspections. On the third return, the monster catches the player even if already hidden. The third wrong choice therefore leads to guaranteed capture on that return; hiding does not prevent it. The post-capture outcome and checkpoint/reset scope remain OPEN.
+Selecting the wrong shell makes the machine sound an ambulance-like alarm. The monster comes back to investigate, and the player must hide immediately. Each return has different comic expression text and attitude. CONFIRMED clarification: on the first two returns the monster shows its attitude, looks around for the cause, and puts the same natural note back into the machine. Hiding successfully allows the player to survive these two inspections. On the third return, the monster catches the player even if already hidden. The third wrong choice therefore leads to guaranteed capture on that return; hiding does not prevent it. Capture fails the attempt and restarts the entire Shell Game, including its return counter; exact failure presentation and layout regeneration remain OPEN.
 
 Selecting the correct shell exposes the guardian's one natural note for the established ABSORB/COLLECT action. Exact access and absorption timing remain OPEN. The earlier wrong-choice treatment of junk plus a laughing monster is superseded by alarm, return, and hiding.
 
@@ -363,7 +367,7 @@ PROPOSED fairness and technical approach:
 - Keep all three shell paths readable, with bounded speed and no offscreen or concealed identity swaps. Track the note by shell identity, not the original screen position. The animation must agree with the correct answer.
 - Accept one shell choice per attempt. Ignore additional shell clicks during the alarm, inspection, or shuffle so they cannot queue several visits or bypass hiding.
 - Present alarm, approach, inspection, departure, retry, note exposure, and absorption as separate scripted states. Three shells, preplanned paths, a hiding flag, and a return counter that guarantees capture on the third return regardless of hiding are plausible for a lightweight 2D implementation; no physics or complex search AI is required. Nothing has been built or benchmarked.
-- OPEN: hiding location and detection rules on the first two returns, arrival delay, search animation and duration, caught-player outcome/checkpoint, reset scope and counter reset on retry, shuffle difficulty, reset/reshuffle staging, successful-choice rounds, and reward pitch. Searching and putting the note back on the first two returns, and unavoidable capture on the third, are confirmed. Do not grant additional natural notes or assume the pocket tunnel can be used before recovery.
+- OPEN: hiding location and detection rules on the first two returns, arrival delay, search animation and duration, caught-player presentation and layout generation on whole-encounter restart, shuffle difficulty, reset/reshuffle staging, successful-choice rounds, and reward pitch. Searching and putting the note back on the first two returns, and unavoidable capture on the third, are confirmed. Do not grant additional natural notes or assume the pocket tunnel can be used before recovery.
 
 ### Selected concept N2: Pepper Soup - the starving monster's meal
 
@@ -377,10 +381,7 @@ The old greedy-cook, hidden-pepper, sneeze, and belt-mounted-trap premise is sup
 - Controls: left-click ingredients and preparation interactions; ordinary right-click movement through the cave. The exact collection-versus-adding-to-pot interaction and final cook/serve action remain OPEN.
 - CONFIRMED failure: completed wrong meal kills the monster and loses the note when eaten. Do not silently change death to sleep, turn a wrong meal into an automatic rejection, or let the player recover the note from its corpse.
 - PROPOSED fairness: place findable recipe-order clues through the scary cave, allow the player to review the selected order before committing, and provide an understandable warning that the creature cannot survive a bad meal. Do not invent a random unhinted eight-item sequence or automatically reveal correctness after every ingredient without user approval.
-- PROPOSED failure recovery: treat the lost unique note as an encounter/run failure and offer a checkpoint before preparation. The death and disappearance still occur in the failed attempt. Retry/checkpoint versus a permanent failed ending has not been chosen; never leave the player in an unwinnable continuing run without acknowledging the missing required note.
-- Availability rule: the note stays contained in the living monster until it voluntarily offers it after the successful meal. An early ABSORB attempt must not bypass the cooking puzzle. How that refusal/containment is presented is OPEN.
-- Technical direction: eight ingredient identities, an ordered selection list, a reference recipe, meal completion, and a success/failure comparison when served/eaten. Use scripted lying-down, eating, death, recovery, and gift states. No food chemistry simulation is needed.
-- OPEN: the eight ingredients and exact recipe, clue locations, whether all eight are used exactly once, ability to reorder before cooking, cook/serve confirmation, starvation timer if any, retry scope, gift/absorption animation, and encounter order.
+- CONFIRMED failure recovery: a wrong meal kills the monster and destroys its note within that attempt. Restart the entire cooking encounter from its beginning, not a preparation checkpoint, restoring the monster and note for the new attempt. Do not replay earlier completed encounters or soften the failed-attempt outcome.
 
 ### Selected concept N3: The Backwards Vacuum - three puzzles and a rude awakening
 
@@ -397,7 +398,7 @@ CONFIRMED encounter sequence:
 3. Press "Wake the monster up". The character walks to the nearest column, pushes it, and it drops straight onto the monster's head.
 4. The monster wakes and presses its machine's button, intending to suck the character in.
 5. The machine shakes and releases everything instead, including this guardian's one natural note. The powerful ejection, caused by its accumulated contents, recoils the monster backward into the wall and knocks it unconscious.
-6. After the monster is knocked out, play the character's note-absorption animation, open the pocket tunnel, and leave. This encounter explicitly ends with tunnel escape; it does not settle automatic versus manual escape globally or choose a tunnel destination.
+6. After the monster is knocked out, play the character's note-absorption animation, open the pocket tunnel, and leave. This encounter ends with its predefined tunnel escape scene; the final activation input and staging remain OPEN.
 
 PROPOSED presentation, fairness, and technical approach:
 
@@ -407,14 +408,14 @@ PROPOSED presentation, fairness, and technical approach:
 - Apply the established ABSORB/COLLECT action to recover the released note and grant the earned escape use. The absorption animation happens after the monster is knocked unconscious. Exact note landing point, whether absorption starts automatically or needs the established button press, manual versus automatic tunnel activation for this scene, and animation timing remain OPEN. Do not add a chase, monster recovery countdown, or timed collection challenge without a further decision.
 - Use three puzzle completion flags, a reverse-mode flag, and scripted wake/activation/shake/ejection/recoil/wall-impact/knockout/absorption/escape states. Ignore duplicate wake presses and commit note recovery once. No falling-column physics, fluid simulation, or complex monster AI is necessary. This is a feasibility approach, not measured performance; no prototype has been built or tested.
 
-OPEN: the three puzzle designs, solutions, hints, reset rules and difficulty; exact layer presentation; column staging and character route; ejected objects; monster expressions/dialogue; recoil and wall-impact staging; animation timing; absorption and escape inputs; destination; and encounter reward pitch/order. The monster remaining asleep during puzzles and the deliberate column wake-up are confirmed, so do not add noise-triggered waking or a sleep countdown as established rules.
+OPEN: the three puzzle designs, solutions, hints, reset rules and difficulty; exact layer presentation; column staging and character route; ejected objects; monster expressions/dialogue; recoil and wall-impact staging; animation timing; absorption and escape inputs; fixed scene staging; and reward pitch. Encounter 4 is confirmed. The monster remaining asleep during puzzles and the deliberate column wake-up are confirmed, so do not add noise-triggered waking or a sleep countdown as established rules.
 
 ### New guardian proposal P6: The Crumbling Maze - route planning
 
 A stone guardian keeps its natural-note trap behind a small maze. Floor tiles crumble after the character leaves them. Three switches must be reached before the central trap opens, so the player must plan a route that does not destroy the path still needed. Right-click chooses movement destinations; left-click activates reachable switches. Reaching the released note still requires ABSORB.
 
 - Distinct activity: planning a spatial route and managing changing walkable ground. It is not a rhythm, melody, or pitch puzzle.
-- PROPOSED fairness: mark fragile and permanent safe tiles clearly, show which tiles a movement command will traverse, and use a small authored layout with known solutions. Give a local retry/reset if the route becomes blocked. Do not have pathfinding silently consume several fragile tiles the player did not intend to cross.
+- PROPOSED fairness: mark fragile and permanent safe tiles clearly, show which tiles a movement command will traverse, and use a small authored layout with known solutions. If blockage is failure, restart the entire encounter under the confirmed rule; exact failure detection is proposed. Do not have pathfinding silently consume several fragile tiles the player did not intend to cross.
 - Technical direction: a small tile graph, visited/collapsed flags, fixed switch states, and short crumble animations. No platforming controls or falling-bridge physics are necessary.
 - OPEN: maze layout, switch count, whether a timer is needed, failure presentation, and reset behavior. Three switches is a proposal, not a requirement.
 
@@ -434,11 +435,11 @@ This is a proposed finale for the confirmed eighth boss and its army after the v
 Proposed three-phase battle:
 
 1. Survive the assault: army attacks and storm strikes are visibly telegraphed. Right-click moves between safe cover; left-click nearby gates or barriers to block incoming groups. Show the larger army in background silhouettes and operate only a few active threats at a time.
-2. Sabotage the machine: reach several control points and change valves while avoiding the boss's attacks. The Backwards Vacuum supplies the player's prior understanding of the mechanism, but the final machine has new positioning and danger rather than simply replaying that entire mini-game.
+2. Sabotage the machine: reach several control points and change valves while avoiding the boss's attacks. The Backwards Vacuum introduces reversing a capture machine; any finale valve mechanics would be new, since the Vacuum's three puzzle types remain OPEN. The final machine should have new positioning and danger rather than replaying that entire encounter.
 3. Reverse the storm: after the controls are ready, bait a large, visibly aimed boss attack into its own exposed engine fitting and step away. This exposes the reverse lever. Activate it to turn the engine against the boss, collapse the storm, and finish the encounter. The seven restored notes can sound together in the victory scene without requiring a musical-input puzzle or consuming the recovered notes.
 
-- Story proposal: the saved starving guardian may return to help with a gate, distraction, or warning about the machine. Its participation and whether other guardians assist are not confirmed. Do not assume the whole army was coerced or automatically defects; only this guardian's family-threat motive is established.
-- PROPOSED fairness: clear phase transitions, protected success animations, visible threat previews, reachable controls, and a checkpoint between major phases. A final failure must not require replaying all seven note recoveries unless the user explicitly chooses that rule.
+- Story proposal: the saved starving guardian may return to help with a gate, distraction, or warning about the machine. Its participation and whether other guardians assist are not confirmed. Do not assume the whole army was coerced or automatically defects; mixed guardian loyalties are confirmed, but only the starving guardian's specific family-threat story is assigned.
+- PROPOSED fairness: clear phase transitions, protected success animations, visible threat previews, reachable controls, and warnings. Failure restarts the whole final encounter including all phases, without phase checkpoints; earlier completed guardians are not replayed. Keep the encounter straightforward.
 - Technical direction: a few active attack patterns, preplanned army-wave events, valve states, cover states, and staged engine/boss animations. No mass-army simulation or new note generation is required.
 - Constraints: do not absorb the boss as if it were a natural note, require a new natural-note pickup to recharge an escape, consume the seven notes, or introduce a tunnel combat power without a new explicit design decision. Defeating the engine ends the fight in this proposal.
 - OPEN: final-boss identity/motive, location, attack patterns, number of mechanisms, army presentation, ally participation, retries, exact final reversal, and post-battle ending. All three phases are unapproved proposals.
@@ -467,7 +468,7 @@ A hoarding monster keeps the note trap on a hanging platform above the character
 
 Five games are selected, including the revised cooking story, The Backwards Vacuum, and The Shell Game. The Crumbling Maze and The Ink Painter are the current suggestions for the two remaining guardians; The Storm Engine is the current final-battle suggestion. They still need user selection. Mirror Garden, Balance the Hoard, and the musical concepts below remain parked rather than being quietly added to the roster.
 
-Treat the one-natural-note-per-guardian rule as confirmed fiction. Do not assume extra notes can be generated to support a puzzle. The relationship between ordinary played pitches and the seven unique energy-bearing wisps is still OPEN; do not convert the user's lore concern into an invented universal music-theory rule.
+One natural-note energy per guardian and the loss of stolen natural pitches from instruments are confirmed. Do not generate extra notes or assume instruments can imitate missing natural pitches. Review parked musical ideas against this rule before any future selection.
 
 ### Earlier musical options - parked, not selected
 
@@ -573,6 +574,12 @@ On 2026-11-10 the user chose 2D cartoon art, chibi style, and pastel colors, rep
 
 PROPOSED first prototype: one polished cave encounter with movement, candle and shadow interaction, microphone strength input, authored sound, note absorption, and one lantern slot restoring remotely. This prototype has not been built or scheduled.
 
+### CONFIRMED cutscene production preference
+
+Keep animation code as small and simple as practical for the web and low-spec devices. The Vacuum wake-up button starts one noninteractive sequence: character moves to column, hits/pushes it, column drops onto monster's head, monster wakes angry, grabs machine, presses button, machine shakes and blasts contents everywhere, recoil throws monster into wall, monster becomes unconscious. Absorption and the fixed escape follow. A short video/clip or simple authored animation is acceptable; the user prefers simple optimized animation when practical. No format or runtime library is chosen.
+
+PROPOSED production check: compare a short compressed clip against a small sprite/pose sequence for download size, memory, playback smoothness, and transition into absorption on target hardware. Avoid complex procedural animation or physics. No clip, animation assets, implementation, or performance measurements exist yet.
+
 ### Web design and animation skills: researched options
 
 The user asked about skills for web design and animation, including Motion. The following is tooling research dated 2026-10-22, not a finalized dependency choice or authorization to install tools.
@@ -609,29 +616,29 @@ PROPOSED combination: Product Design for visual exploration, Canvas 2D for the g
 - Incorporated the confirmed one-natural-note-per-guardian constraint and the user's request for non-musical challenges. Parked the earlier musical options and proposed five physical/comic alternatives: The Shell Game, Pepper Soup, The Backwards Vacuum, The Mirror Garden, and Balance the Hoard. Flagged the existing basement password for lore review; no established encounter was silently replaced.
 - The user approved The Shell Game and The Backwards Vacuum and replaced Pepper Soup with exact-order cooking for a starving monster, including wrong-meal death/note loss and a family-coercion reveal on success. The selected roster now contains five games. Proposed The Crumbling Maze and The Ink Painter for the last two guardians, and The Storm Engine for the finale; those three are not chosen yet.
 
-- Refined The Shell Game with the user's three-shell mixing machine, ambulance-like wrong-choice alarm, immediate hiding, and up to three different monster return reactions. Confirmed that the first two returns include attitude, searching, and putting the note back; the third return catches the player even when hidden. Dialogue, warning, and reset staging remain proposed; post-capture retry rules remain open.
+- Refined The Shell Game with the user's three-shell mixing machine, ambulance-like wrong-choice alarm, immediate hiding, and up to three different monster return reactions. Confirmed that the first two returns include attitude, searching, and putting the note back; the third return catches the player even when hidden. Warnings are required; exact dialogue, warning presentation and reset staging remain proposed. Capture restarts the whole encounter; exact failure presentation remains open.
 
 - Revised The Backwards Vacuum with three stacked puzzles over a reverse switch, an always-sleeping puzzle-phase monster, a simple wake-up button and scripted falling-column gag, monster-triggered overloaded ejection and recoil into a wall, unconscious monster, and an absorption animation followed by tunnel escape. Puzzle designs and detailed timing/inputs remain open; no implementation or testing has occurred.
 
+- Confirmed missing-natural-pitch lore, Monster King and mixed guardian loyalties, direct note transfer and one-use fixed escapes, predefined entry scenes, whole-encounter restarts, warnings and order 1-5. Added section 16 for scenes/backstories and the simple web cutscene production direction. No implementation or testing has occurred.
+
 ### Current next step
 
-Five game concepts are selected. Help the user choose or refine The Crumbling Maze and The Ink Painter for the two remaining guardians and The Storm Engine for the final boss, or replace those proposals with their ideas. Develop the starving monster's recipe clues and failure/retry handling without undoing the specified death-and-lost-note outcome. Older alternatives remain parked. Honor one natural-note resource per guardian and resolve the existing password's lore before implementation. Do not start full implementation from planning alone; follow the current user request.
+Develop section 16: each monster's entry/escape scene, personal story, and loyalty or coercion, following confirmed order 1-5. Select the remaining guardians and final-battle mechanics separately. Revise the basement password for missing natural pitches; design the three Vacuum puzzles. Keep encounters straightforward with full current-encounter failure restarts and warnings. Do not start full implementation from planning alone.
 
 ### Remaining design and validation
 
-- Backwards Vacuum: design the three stacked puzzles, layer transitions and hints; stage the column gag, monster activation, overloaded ejection, recoil/wall impact and knockout, then absorption and escape; choose inputs and timing without adding an unapproved chase, sleep timer, or recovery countdown.
-- Shell Game: first-two-return hiding/detection, alarm-to-arrival timing, reset/reshuffle visibility, caught-player outcome and checkpoint/counter reset, a warning for confirmed third-return capture, and final comic dialogue.
-- Refine the pastel 2D chibi cartoon direction: character proportions, palette, outline treatment, environment details, and visual references remain open.
-- Select the two remaining guardian concepts and final battle; the current three proposals are not confirmed. Finalize roster order and reward assignments.
-- Revised cooking encounter: eight ingredients/recipe, clue design, irreversible serve boundary, starvation timer if any, death/note-loss retry or ending, and voluntary release/absorption.
-- Clarify ordinary pitch reproduction versus ownership of the seven unique natural-note energies, especially the existing example basement password. The user has requested non-musical alternatives, not deletion of their two established encounters.
-- Melody-basement timing, retry scope, octave policy, exact sharp inventory, and pocket-tunnel restrictions/destination.
-- Absorption area, button label, manual versus automatic escape, empty-use thresholds, five-second sleep input/timer behavior, and trapped-air note art.
-- Microphone prototype and false-trigger testing.
-- Candle timing, movement cancellation, range, failure rules, and fallback control.
-- Note order, names, monster identities, and optional abilities.
-- Final battle location and ending.
-- Visual prototype and performance measurements on representative older hardware.
+- Scene staging and individual backstories in section 16; protagonist identity and king's theft motive.
+- Select guardians 6 and 7 and final battle. The Crumbling Maze, The Ink Painter, and The Storm Engine remain unselected.
+- Resolve the historical basement password and unavailable white-key behavior; decide which recovered natural pitches return to instruments and when.
+- Design three stacked Vacuum puzzles and simple wake-to-knockout cutscene; choose clip versus authored animation after evaluating web performance.
+- Cooking ingredients, exact recipe, clues, pre-serving warning, and success/failure staging. Failure restarts the entire encounter.
+- Shell hiding/search rules and timing, distinct reaction text, warning before the third-return capture, and whole-encounter restart presentation.
+- Lock and basement timers, octave policy, exact sharp-note inventory, absorption zone/button and failed-use thresholds; five-second sleep inputs and danger-timer behavior.
+- Fixed entry/escape staging, final escape activation input, and timer-to-success boundary.
+- Microphone reliability, fallback controls, candle timing and detection, movement cancellation, and range.
+- Reward pitches, note naming, monster identities, final location, army motives and ending.
+- Visual assets/prototype and performance measurements on representative older hardware. Nothing is implemented or benchmarked.
 
 ## 12. Documentation maintenance and handoff
 
@@ -650,6 +657,7 @@ Portability: give another AI `GAME_DESIGN.md`, or the whole APFS folder. It shou
 
 ## 13. Superseded directions
 
+- Instruments freely imitating stolen natural pitches, notes staying inside the protagonist, stored-note tunnel recharge, free destination selection, undecided order 1-5 and intermediate-stage failure checkpoints: replaced by the confirmed rules in version 0.17.
 - Backwards Vacuum valve/hose configuration and player-triggered immediate release: replaced by three stacked puzzles hiding a reverse switch, a deliberately awakened monster, and the monster activating the reversed machine before note recovery and tunnel escape.
 - Shell Game ambiguity about the three-return cap: resolved by the user. The first two inspections allow hiding and reset the note; the third guarantees capture even when hidden. The earlier proposed third-visit line threatening one more alarm is replaced with a capture gag.
 - Shell Game wrong choices merely revealing junk and making the monster laugh: replaced by the mixing machine's ambulance-like alarm, the monster returning to investigate, and immediate hiding.
@@ -687,6 +695,8 @@ Portability: give another AI `GAME_DESIGN.md`, or the whole APFS folder. It shou
 | 0.14 | 2026-11-10: confirmed two Shell Game inspections with attitude, searching, and note reset; third return guarantees capture even in hiding; revised proposed final gag and left post-capture retry rules open |
 | 0.15 | 2026-11-10: revised The Backwards Vacuum with three stacked puzzles, a bottom reverse switch, sleeping monster, wake-up button and falling-column gag, monster-triggered ejection, note recovery and tunnel escape; puzzle specifics remain open |
 | 0.16 | 2026-11-10: confirmed that the Backwards Vacuum's overloaded ejection recoils the monster into a wall and knocks it unconscious before the character's absorption animation and tunnel escape |
+| 0.17 | 2026-11-10: confirmed missing natural pitches, Monster King and mixed loyalties, direct note transfer and one-charge fixed transitions, whole-encounter restarts, warnings and order 1-5; added scene/backstory section and simple web cutscene production preference |
+| 0.18 | 2026-11-10: recorded an all-sharp melody as a proposed lore-compatible piano password; exact sequence and unavailable-white-key behavior remain unselected/open |
 
 ## 15. Technical references
 
@@ -704,3 +714,49 @@ Portability: give another AI `GAME_DESIGN.md`, or the whole APFS folder. It shou
 - [Official Motion AI Kit](https://motion.dev/docs/ai-kit)
 - [Motion AI Kit installation and free/paid features](https://motion.dev/docs/ai-kit-install)
 - [Motion JavaScript animation API](https://motion.dev/docs/animate)
+
+## 16. Encounter scenes and monster stories
+
+This is the dedicated scene/backstory workspace requested by the user. Confirmed scenes are below; unresolved individual stories remain OPEN. Each monster encounter has a predefined entry scene and, after successful note recovery, a predefined tunnel escape. These are authored transitions, not extra navigation puzzles. Exact staging is OPEN; entry is not automatically a tunnel action.
+
+### Shared story and continuity rules
+
+- CONFIRMED: the Monster King is the world's most powerful monster. His seven guardians serve under threat of death for disobedience. Some also respect him; some are good monsters forced to steal. Do not give them all the same motive or assign individual loyalties without a decision.
+- CONFIRMED: stolen natural notes stop the lantern illuminating the world and leave instruments with sharp notes. Absorption gives one tunnel charge then sends the airy note directly to the lantern; the character does not retain it.
+- CONFIRMED: failure restarts the current encounter from its beginning, including all stages, without stage checkpoints. Earlier completed encounters are not replayed. Keep the games straightforward enough to support this rule.
+- CONFIRMED: warn players before dangerous or irreversible outcomes, including the Shell Game's third-return capture. Exact text, indicators and timing remain OPEN.
+- OPEN: protagonist name/background; king's theft motive; guardian names, personal loyalties and fates; restoration timing of instrument pitches; final location and ending.
+
+### Encounter 1: Blow the Candle
+
+CONFIRMED scene: cave, huge candle, guardian facing a wall, protagonist's shadow revealing their presence. Extinguish the repeatedly relit candle and recover note C. Fixed entry and tunnel escape frame the encounter; exact staging remains OPEN.
+
+OPEN monster story: name, why it watches the wall, respect versus forced service to the king, and reaction to losing the note.
+
+### Encounter 2: Press to Find Matching Sounds
+
+CONFIRMED scene: observe the guardian's named melody at the lock; solve the unlabeled piano lock; jump into the basement and become locked in; search the shelf while the guardian tries to break through; absorb the target and use the fixed escape. Failure in either stage restarts the whole encounter from its beginning.
+
+OPEN monster story: name, why it stores notes in a basement, individual loyalty/coercion, and what the player learns about it. Revise the historical multi-natural-note password for the sound rule without replacing the established lock.
+
+### Encounter 3: The Starving Monster's Meal
+
+CONFIRMED scene: frightening cave from entrance to throne; starving guardian lying at the end; eight ingredients and exact-order cooking. Correct meal saves it and earns a voluntary note gift. Wrong meal kills it and destroys its note within that failed attempt, then the entire encounter restarts. Successful recovery leads to the predefined escape.
+
+CONFIRMED personal story: the king threatened its family to force it into theft. OPEN: name, family details, why it is starving, recipe clues, and any future finale involvement.
+
+### Encounter 4: The Backwards Vacuum
+
+CONFIRMED scene: sleeping guardian, three stacked puzzles and bottom reverse switch. Once reversed, the wake-up button starts the authored column-to-knockout sequence in section 10. Absorb the released note after the monster becomes unconscious, send the note to the lantern and spend the charge on the fixed escape. Exact puzzles, cutscene medium and absorption trigger remain OPEN.
+
+OPEN monster story: name, why it collects so much, why it sleeps here, and whether it respects the king or serves unwillingly. Its comic defeat does not establish its moral alignment.
+
+### Encounter 5: The Shell Game
+
+CONFIRMED scene: note hidden beneath a shell, machine shuffles three shells, wrong choice sounds an ambulance-like siren. First two returns include distinct attitudes, looking for the cause and putting the note back; hiding protects the player. Third return catches the player even in hiding and restarts the whole encounter. Give a warning before this consequence. Correct choice leads to absorption and the fixed escape.
+
+OPEN monster story: name, purpose of the machine, personal loyalty/coercion, final dialogue and capture gag. Suggested spoon, shower-cap and pillow entrances remain proposals.
+
+### Guardians 6 and 7, and the Monster King
+
+OPEN/unselected: The Crumbling Maze and The Ink Painter remain candidate scenes. The eighth encounter features the king and his army after the restored village celebrates; The Storm Engine mechanics remain a proposal. There is no eighth natural note. Decide final entry, battle, army motives, guardian assistance and ending separately. A multi-stage final encounter also restarts from its beginning on failure.
