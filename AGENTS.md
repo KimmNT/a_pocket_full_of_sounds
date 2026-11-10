@@ -1,6 +1,6 @@
 # APFS project instructions
 
-This project is A Pocket Full of Sounds (APFS), a browser game with doodle art and soft music, intended for low-spec laptops and PCs.
+This project is A Pocket Full of Sounds (APFS), a browser game with pastel 2D cartoon art, chibi characters, and soft music, intended for low-spec laptops and PCs.
 
 ## Read before continuing
 

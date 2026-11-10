@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>A Pocket Full of Sounds - Game Design</title><meta name="design-version" content="0.11"><meta name="source-sha256" content="0f03a968ff239357642c2ea0e9028eee1fdb920ced1e384aadb2fd6c21ace091">
+<title>A Pocket Full of Sounds - Game Design</title><meta name="design-version" content="0.16"><meta name="source-sha256" content="1176e43774d7289553098f5dc3bbbc879385480ce7a6fb360b7156c5b9171f06">
 <style>:root{color-scheme:light;--ink:#263e3b;--muted:#61726b;--paper:#faf7ee;--line:#dcded1;--green:#315c4f;--gold:#ad7222}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 'Segoe UI',Arial,sans-serif}main{max-width:1040px;margin:auto;padding:56px 32px 80px}header{border-bottom:2px solid var(--ink);padding-bottom:28px;margin-bottom:28px}.eyebrow{letter-spacing:.15em;text-transform:uppercase;font-size:12px;font-weight:700;color:var(--green)}h1{font:700 clamp(32px,5vw,52px)/1.15 Georgia,serif;margin:12px 0 16px}h2{font:700 28px/1.3 Georgia,serif;margin:42px 0 16px}h3{font-size:18px;margin:24px 0 8px}p{margin:10px 0 16px}.muted{color:var(--muted)}nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin:24px 0}a{color:var(--green);text-underline-offset:4px}.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;background:#e3ecdf;color:#31533c}.proposal{background:#f4e8cb;color:#80551b}.open{background:#e6e9ec;color:#425362}.callout{background:#edf0e4;border-left:4px solid var(--green);padding:14px 20px;margin:20px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.card{border:1px solid var(--line);border-radius:12px;padding:18px 22px;background:#fffdf6}.card h3{margin-top:0}table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:15px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid var(--line)}th{background:#e9ecdf;font-size:13px}ul,ol{padding-left:24px}li{margin:7px 0}.table-wrap{overflow-x:auto}footer{border-top:1px solid var(--line);margin-top:44px;padding-top:20px;font-size:14px;color:var(--muted)}@media(max-width:650px){main{padding:30px 18px}.grid{grid-template-columns:1fr}th,td{padding:9px}}@media print{body{background:white;font-size:11pt}main{max-width:none;padding:0}nav{display:none}h2,h3{break-after:avoid}.card,tr,.callout{break-inside:avoid}a{color:inherit}.badge{border:1px solid #bbb}h1{font-size:30pt}}
 code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;padding:2px 4px;border-radius:3px}h2{scroll-margin-top:20px}nav{font-size:13px}table{min-width:520px}</style></head><body><main>
-<header><div class="eyebrow">APFS / Game design / Version 0.11</div><p class="muted">Updated 2026-10-23 (Asia/Bangkok) / Human-readable edition</p><p>Design, decisions, and progress. The companion <code>GAME_DESIGN.md</code> carries the same record for future AI sessions.</p></header>
+<header><div class="eyebrow">APFS / Game design / Version 0.16</div><p class="muted">Updated 2026-11-10 (Asia/Bangkok) / Human-readable edition</p><p>Design, decisions, and progress. The companion <code>GAME_DESIGN.md</code> carries the same record for future AI sessions.</p></header>
 <nav aria-label="Document sections"><a href="#project-record">Project record</a><a href="#status-definitions">Status definitions</a><a href="#1-confirmed-game-direction">1. Confirmed game direction</a><a href="#2-story">2. Story</a><a href="#3-notes-and-village-lantern">3. Notes and village lantern</a><a href="#4-confirmed-controls-and-blowing-behavior">4. Confirmed controls and blowing behavior</a><a href="#5-encounter-tracker">5. Encounter tracker</a><a href="#6-blow-the-candle">6. Blow the Candle</a><a href="#7-press-to-find-matching-sounds">7. Press to Find Matching Sounds</a><a href="#8-additional-guardians-final-battle-proposals-and-parked-alternatives">8. Additional guardians, final-battle proposals, and parked alternatives</a><a href="#9-microphone-technical-plan">9. Microphone technical plan</a><a href="#10-visual-audio-and-performance-approach">10. Visual, audio, and performance approach</a><a href="#11-progress-and-next-work">11. Progress and next work</a><a href="#12-documentation-maintenance-and-handoff">12. Documentation maintenance and handoff</a><a href="#13-superseded-directions">13. Superseded directions</a><a href="#14-revision-history">14. Revision history</a><a href="#15-technical-references">15. Technical references</a></nav>
 <h1 id="a-pocket-full-of-sounds">A Pocket Full of Sounds</h1>
 <h2 id="project-record">Project record</h2>
 <ul>
 <li>Project abbreviation: APFS.</li>
-<li>Version: 0.11.</li>
-<li>Updated: 2026-10-23 (Asia/Bangkok).</li>
+<li>Version: 0.16.</li>
+<li>Updated: 2026-11-10 (Asia/Bangkok).</li>
 <li>Project folder: <code>C:\Users\JoseKim\Desktop\APFS</code>.</li>
 <li>Stage: story and gameplay design; no game implementation or performance testing yet.</li>
 <li>Human document: <code>A Pocket Full of Sounds - Game Design.html</code>.</li>
@@ -31,7 +31,7 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <h2 id="1-confirmed-game-direction">1. Confirmed game direction</h2>
 <ul>
 <li>Browser-based game for low-spec laptops and PCs.</li>
-<li>Doodle art style and soft songs.</li>
+<li>2D cartoon art with chibi characters and pastel colors; soft songs remain part of the direction.</li>
 <li>Sound is part of the world&#x27;s life and energy.</li>
 <li>Eight play rounds: seven note-recovery mini-games and one final battle.</li>
 <li>Each note guardian has its own battle style.</li>
@@ -69,7 +69,7 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <li>Monsters can suck natural notes into a containing ability or device supplied by the final boss. Whether this is an innate/granted ability or a physical tool is not finalized.</li>
 <li>This gives the stolen notes a visible trapped form that can be shown on screen and recovered.</li>
 </ul>
-<p>PROPOSED visual treatment: simple translucent doodle wisps or air swirls confined within small visible traps on the shelf. Containers, colors, outlines, and note-symbol decorations are not finalized. Do not reveal which untested wisp is natural through a unique visual treatment unless deliberately chosen.</p>
+<p>PROPOSED visual treatment: simple translucent cartoon wisps or air swirls confined within small visible traps on the shelf. Containers, colors, outlines, and note-symbol decorations are not finalized. Do not reveal which untested wisp is natural through a unique visual treatment unless deliberately chosen.</p>
 <h3 id="confirmed-system">CONFIRMED system</h3>
 <ul>
 <li>The character can absorb recovered notes.</li>
@@ -91,7 +91,7 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <h3 id="proposed-explanation-and-presentation">PROPOSED explanation and presentation</h3>
 <ul>
 <li>A magical bond connects the character and lantern. The note stays in the character while its music reaches home.</li>
-<li>Each absorbed note appears as a glowing doodle on the character.</li>
+<li>Each absorbed note appears as a glowing cartoon mark on the character.</li>
 <li>Short, wordless village scenes show one lantern chamber lighting and something recovering.</li>
 <li>Each recovered note adds a musical layer to the soundtrack.</li>
 <li>Additional note-specific abilities remain optional. Absorption and the natural-note-powered pocket tunnel are confirmed, but there is no established wider ability progression system.</li>
@@ -128,8 +128,8 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <tr><td>Blow the Candle</td><td>Note C</td><td>User concept recorded; tuning and round placement open</td></tr>
 <tr><td>Press to Find Matching Sounds</td><td>Natural note, pitch not assigned</td><td>Countdown piano lock; randomized shelf search; area-based ABSORB/COLLECT; earned tunnel escape; repeated empty attempts cause a five-second sleep; no chase</td></tr>
 <tr><td>Pepper Soup - revised starving-monster meal</td><td>Natural note, pitch not assigned</td><td>CONFIRMED user revision: eight ingredients, exact cooking order, lethal wrong meal, compassionate success, family-coercion reveal</td></tr>
-<tr><td>The Backwards Vacuum</td><td>Natural note, pitch not assigned</td><td>Basic concept approved by the user; exact mechanics remain proposals/open</td></tr>
-<tr><td>The Shell Game</td><td>Natural note, pitch not assigned</td><td>Basic concept approved by the user; exact mechanics remain proposals/open</td></tr>
+<tr><td>The Backwards Vacuum</td><td>Natural note, pitch not assigned</td><td>Three stacked puzzles conceal a reverse switch; sleeping monster; wake-up button scripts a column falling straight onto its head; monster activates reversed machine; overloaded ejection recoils it into the wall, knocking it unconscious; absorption animation and tunnel escape</td></tr>
+<tr><td>The Shell Game</td><td>Natural note, pitch not assigned</td><td>Three-shell mixing machine; observe the shuffle; wrong choice triggers an ambulance-like alarm; first two returns: attitude, search, and note reset while player hides; third return: guaranteed capture even when hidden</td></tr>
 <tr><td>Guardian slot 6</td><td>Sixth natural note, pitch not assigned</td><td>The Crumbling Maze proposed; not selected</td></tr>
 <tr><td>Guardian slot 7</td><td>Seventh natural note, pitch not assigned</td><td>The Ink Painter proposed; not selected</td></tr>
 <tr><td>Final boss and army, round 8</td><td>Defend the recovered world; no eighth note</td><td>The Storm Engine proposed as a three-phase finale; not selected</td></tr>
@@ -219,7 +219,7 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <li>If both a sharp and natural note overlap the area, absorb only the valid natural target. Do not report an empty area merely because a decoy was checked first.</li>
 <li>Each completed empty attempt counts once; button mashing during its animation is ignored, not queued as several extra failures. Holding a button must not repeatedly trigger it.</li>
 <li>Ordinary note auditions, empty-slot clicks, and rejected UI clicks do not count toward the angry nap.</li>
-<li>Suggested gag, not a fixed threshold: first empty attempt gets a blank stare, the next a shake of the tunnel, and repeated misuse makes the character pull a tiny pillow from the pocket and sleep with doodled Zs. Example lines: &quot;Nothing. Very impressive.&quot; and &quot;Wake me when you find a note.&quot;</li>
+<li>Suggested gag, not a fixed threshold: first empty attempt gets a blank stare, the next a shake of the tunnel, and repeated misuse makes the character pull a tiny pillow from the pocket and sleep with cartoon Zs. Example lines: &quot;Nothing. Very impressive.&quot; and &quot;Wake me when you find a note.&quot;</li>
 <li>The user fixed the sleep duration at five seconds. Proposed: movement, auditions, and absorption pause for the character while the basement danger countdown continues. Warn with visible irritation before the nap. Timer behavior and exact disabled actions still need approval.</li>
 <li>Discard inputs received while asleep, reset the failure streak on waking, and require a fresh press to avoid an immediate second nap from queued clicks. These reset rules are proposals.</li>
 <li>After success, the same button could change to ESCAPE if a manual escape use is chosen. A second button is not required. This is a proposal, not a confirmed UI flow.</li>
@@ -276,15 +276,32 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <h2 id="8-additional-guardians-final-battle-proposals-and-parked-alternatives">8. Additional guardians, final-battle proposals, and parked alternatives</h2>
 <p>The Shell Game and The Backwards Vacuum are approved at concept level. Pepper Soup is approved in the user&#x27;s revised form below; the old pepper-sneeze trick is superseded. The user now counts five selected games and requests two more guardian ideas plus one final-boss game. The Crumbling Maze, The Ink Painter, and The Storm Engine below are new PROPOSALS, not approved additions. Mirror Garden, Balance the Hoard, and the earlier musical ideas remain parked. There are still only seven note guardians and one final boss.</p>
 <p>Each guardian yields only its single stolen natural-note wisp. Use the established ABSORB/COLLECT mechanic when the note is made available; in the cooking encounter the monster releases it voluntarily after being saved. Do not invent extra natural notes. The final battle awards no eighth natural note. Music remains available for the soundtrack and recovery scenes, without being the new challenges&#x27; input mechanic. Pocket-tunnel rules remain subject to the open global decisions.</p>
-<h3 id="selected-concept-n1-the-shell-game-follow-the-hidden-trap">Selected concept N1: The Shell Game - follow the hidden trap</h3>
-<p>CONFIRMED: the user approved the basic concept. Specific round counts, difficulty, and all technical/fairness recommendations below are not automatically finalized by that approval.</p>
-<p>A smug monster hides the stolen note&#x27;s little trap beneath one of three identical cups or boxes. The player sees the initial hiding place, watches the containers shuffle, and selects the one holding the trap. Successful rounds expose the real device long enough to reach it and absorb the note. Wrong choices reveal ridiculous junk and make the monster laugh.</p>
+<h3 id="selected-concept-n1-the-shell-game-the-noisy-mixing-machine">Selected concept N1: The Shell Game - the noisy mixing machine</h3>
+<p>CONFIRMED user revision (2026-11-10): the monster has a mixing machine. After it hides its single stolen natural note under one of three shells, the machine shuffles those shells so that the monster intends only itself to know the correct one. The player can discover it by observing the shuffling animation. This is visual tracking, not an impossible hidden or unobservable shuffle. The existing small note trap can remain a proposed way to contain the airy note beneath a shell; its exact presentation remains OPEN.</p>
+<p>Selecting the wrong shell makes the machine sound an ambulance-like alarm. The monster comes back to investigate, and the player must hide immediately. Each return has different comic expression text and attitude. CONFIRMED clarification: on the first two returns the monster shows its attitude, looks around for the cause, and puts the same natural note back into the machine. Hiding successfully allows the player to survive these two inspections. On the third return, the monster catches the player even if already hidden. The third wrong choice therefore leads to guaranteed capture on that return; hiding does not prevent it. The post-capture outcome and checkpoint/reset scope remain OPEN.</p>
+<p>Selecting the correct shell exposes the guardian&#x27;s one natural note for the established ABSORB/COLLECT action. Exact access and absorption timing remain OPEN. The earlier wrong-choice treatment of junk plus a laughing monster is superseded by alarm, return, and hiding.</p>
+<p>PROPOSED playable sequence:</p>
+<ol>
+<li>Show the monster hide the note and the machine perform a visible, trackable shuffle. The monster leaves before the player makes a choice; exact staging remains OPEN.</li>
+<li>The player left-clicks a shell after shuffling stops. Correct choice exposes the note; wrong choice triggers the alarm and begins the monster&#x27;s return.</li>
+<li>Right-click to reach a clearly introduced hiding place; left-click to enter it if a separate interaction is needed. Exact hiding controls are OPEN and must preserve the established mouse scheme.</li>
+<li>On returns one and two, the monster performs its distinct attitude/reaction, looks around for the cause, and puts the note back in the machine. A successfully hidden player survives and can watch it leave. On return three, the monster finds and catches the player even in hiding; do not offer another ordinary retry within that attempt.</li>
+<li>After either of the first two inspections, another shell choice becomes available. The monster re-hides the same note and the established mixing-machine shuffle follows. Exact placement, departure, and shuffle timing remain OPEN; the new shuffle must be observable from hiding or after leaving it. Never duplicate the note or allow a selection during the reset.</li>
+</ol>
+<p>PROPOSED three-visit dialogue and visual gags, not approved final writing:</p>
+<div class="table-wrap"><table><thead><tr><th>Return</th><th>Visual gag</th><th>Expression text</th></tr></thead><tbody>
+<tr><td>1</td><td>Arrives holding an enormous soup spoon</td><td>&quot;Who called an ambulance for a shell?&quot;</td></tr>
+<tr><td>2</td><td>Arrives wrapped in a towel, still wearing a shower cap</td><td>&quot;Someone had better be dying. I was conditioning my horns.&quot;</td></tr>
+<tr><td>3</td><td>Arrives clutching a tiny pillow, looks straight at the hiding place, and pulls the player out</td><td>&quot;Found the problem. It has legs.&quot;</td></tr>
+</tbody></table></div>
+<p>PROPOSED fairness and technical approach:</p>
 <ul>
-<li>Main activity: visual tracking and observation; no musical clue or note recognition.</li>
-<li>Controls: left-click a container; right-click movement if the final trap must be approached.</li>
-<li>Fairness proposals: clear initial reveal, visible paths, bounded shuffle speeds, no offscreen swaps, and a short pause before accepting the final choice. Tell the player whether a selection is final or just highlights a cup. The shuffled container&#x27;s identity, not its original screen position, carries the hidden trap.</li>
-<li>Technical direction: animate three fixed container objects along preplanned paths and track the hidden container identifier. No physics simulation is necessary.</li>
-<li>OPEN: shuffle/round count, whether the monster cheats in a clearly signaled later stage, loss/reset behavior, and the absorption opportunity after winning.</li>
+<li>Make a reachable hiding place visible before the first choice. Tune the first two alarm-to-arrival intervals for movement plus any hide interaction; exact timing is untested. Dialogue must not consume the player&#x27;s opportunity to hide. Proposed warning after the second inspection: the monster points toward hiding spots and says, &quot;Next time, I check EVERY corner.&quot; This signals the confirmed third-return capture without changing it; exact warning text is not approved.</li>
+<li>Pair the siren with a visible alarm cue and an approaching-monster cue. Use a short authored siren at controlled volume; avoid an indefinitely looping or startlingly loud sound. Exact sound is not produced yet.</li>
+<li>Keep all three shell paths readable, with bounded speed and no offscreen or concealed identity swaps. Track the note by shell identity, not the original screen position. The animation must agree with the correct answer.</li>
+<li>Accept one shell choice per attempt. Ignore additional shell clicks during the alarm, inspection, or shuffle so they cannot queue several visits or bypass hiding.</li>
+<li>Present alarm, approach, inspection, departure, retry, note exposure, and absorption as separate scripted states. Three shells, preplanned paths, a hiding flag, and a return counter that guarantees capture on the third return regardless of hiding are plausible for a lightweight 2D implementation; no physics or complex search AI is required. Nothing has been built or benchmarked.</li>
+<li>OPEN: hiding location and detection rules on the first two returns, arrival delay, search animation and duration, caught-player outcome/checkpoint, reset scope and counter reset on retry, shuffle difficulty, reset/reshuffle staging, successful-choice rounds, and reward pitch. Searching and putting the note back on the first two returns, and unavoidable capture on the third, are confirmed. Do not grant additional natural notes or assume the pocket tunnel can be used before recovery.</li>
 </ul>
 <h3 id="selected-concept-n2-pepper-soup-the-starving-monster-s-meal">Selected concept N2: Pepper Soup - the starving monster&#x27;s meal</h3>
 <p>CONFIRMED user revision: the cave is genuinely frightening from the entrance all the way to the throne. At the end, the supposedly terrifying monster is lying down and starving. It has eight cooking items but does not know how to turn them into a meal. The natural note is absorbed inside its body, and it refuses to give it up even while dying.</p>
@@ -300,16 +317,28 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <li>Technical direction: eight ingredient identities, an ordered selection list, a reference recipe, meal completion, and a success/failure comparison when served/eaten. Use scripted lying-down, eating, death, recovery, and gift states. No food chemistry simulation is needed.</li>
 <li>OPEN: the eight ingredients and exact recipe, clue locations, whether all eight are used exactly once, ability to reorder before cooking, cook/serve confirmation, starvation timer if any, retry scope, gift/absorption animation, and encounter order.</li>
 </ul>
-<h3 id="selected-concept-n3-the-backwards-vacuum-reverse-the-capture-device">Selected concept N3: The Backwards Vacuum - reverse the capture device</h3>
-<p>CONFIRMED: the user approved the basic concept. Exact machine layout, thresholds, and technical/fairness recommendations below remain open or proposed.</p>
-<p>The monster leaves its final-boss-provided sucking machine running. The stolen note is held inside it. The player changes a few valves and hose connections, then pulls a reverse lever to turn suction into an outward puff. A correct setup releases the guardian&#x27;s one natural note at a reachable outlet. Wrong setups spit out a sock, inflate a glove, or blow the monster&#x27;s hat sideways.</p>
+<h3 id="selected-concept-n3-the-backwards-vacuum-three-puzzles-and-a-rude-awakening">Selected concept N3: The Backwards Vacuum - three puzzles and a rude awakening</h3>
+<p>CONFIRMED user revision (2026-11-10): the capture machine has a switch that reverses its function from sucking in to releasing its contents. Three puzzles are stacked one over another, with the reverse switch at the bottom. The player must solve all three to access the switch. The exact puzzle types and layouts are OPEN; the earlier valve-and-hose puzzle proposal is not a confirmed requirement.</p>
+<p>The monster stays asleep throughout puzzle solving. After completing the puzzles and flipping the switch, the player deliberately wakes it. A simple button labeled &quot;Wake the monster up&quot; triggers the character to walk to the nearest column and push it. The column drops straight onto the monster&#x27;s head and wakes it. This movement and push are scripted by the button; do not require a separate aiming, strength, or column-toppling mini-game.</p>
+<p>The awakened monster tries to suck the character into its machine and presses its activation button. The machine shakes, then ejects everything because the player reversed it. CONFIRMED follow-up: it has sucked in so many things that the ejection is extremely strong. The recoil throws the monster backward into the wall and knocks it unconscious. After that impact and knockout, the character performs the absorption animation to recover the released natural note, opens the pocket tunnel, and escapes. The knockout is the confirmed opening for recovery; it does not establish a timed recovery window or a later wake-up. Flipping the reverse switch alone does not release the note: the monster&#x27;s later activation causes the payoff. The reverse switch and the monster&#x27;s activation button have separate roles.</p>
+<p>CONFIRMED encounter sequence:</p>
+<ol>
+<li>Solve the three stacked puzzles while the monster remains asleep; the reverse switch lies beneath them.</li>
+<li>Flip the exposed switch to release mode.</li>
+<li>Press &quot;Wake the monster up&quot;. The character walks to the nearest column, pushes it, and it drops straight onto the monster&#x27;s head.</li>
+<li>The monster wakes and presses its machine&#x27;s button, intending to suck the character in.</li>
+<li>The machine shakes and releases everything instead, including this guardian&#x27;s one natural note. The powerful ejection, caused by its accumulated contents, recoils the monster backward into the wall and knocks it unconscious.</li>
+<li>After the monster is knocked out, play the character&#x27;s note-absorption animation, open the pocket tunnel, and leave. This encounter explicitly ends with tunnel escape; it does not settle automatic versus manual escape globally or choose a tunnel destination.</li>
+</ol>
+<p>PROPOSED presentation, fairness, and technical approach:</p>
 <ul>
-<li>Main activity: understand and reconfigure a physical machine; no tune is routed or played.</li>
-<li>Controls: right-click to reach control stations; left-click valves, connectors, and the test/reverse lever.</li>
-<li>Fairness proposals: use a clear airflow indicator and authored valid configurations. Preserve useful feedback after a wrong test. The natural note stays contained until the correct configuration, and testing the machine cannot permanently lose it.</li>
-<li>Technical direction: simple directed connections and valve states with scripted outcomes; no real fluid dynamics or cloth simulation.</li>
-<li>OPEN: connection count, pressure/time rules, monster reactions, and final outlet/absorption zone. The release remains a single natural-note resource, not a source of new notes.</li>
+<li>Solving the top puzzle could remove/open its layer to reveal the next, repeating until the bottom switch is exposed. Exact layer transitions and puzzle interactions remain OPEN. Make cleared progress and the switch&#x27;s changed mode readable.</li>
+<li>Make the wake-up button available only after all three puzzles are solved and release mode is selected. This preserves the requested simple sequence; early-wake behavior is not confirmed.</li>
+<li>Use a scripted straight-down column animation and a comic impact/reaction, followed by the monster confidently pressing its button. Show the strong ejection, backward recoil, wall impact, and unconscious pose as a clear sequence before absorption. Ordinary captured objects can communicate the overloaded machine; exact inventory, flight paths, and impact gags remain OPEN. Do not invent additional natural notes among the contents.</li>
+<li>Apply the established ABSORB/COLLECT action to recover the released note and grant the earned escape use. The absorption animation happens after the monster is knocked unconscious. Exact note landing point, whether absorption starts automatically or needs the established button press, manual versus automatic tunnel activation for this scene, and animation timing remain OPEN. Do not add a chase, monster recovery countdown, or timed collection challenge without a further decision.</li>
+<li>Use three puzzle completion flags, a reverse-mode flag, and scripted wake/activation/shake/ejection/recoil/wall-impact/knockout/absorption/escape states. Ignore duplicate wake presses and commit note recovery once. No falling-column physics, fluid simulation, or complex monster AI is necessary. This is a feasibility approach, not measured performance; no prototype has been built or tested.</li>
 </ul>
+<p>OPEN: the three puzzle designs, solutions, hints, reset rules and difficulty; exact layer presentation; column staging and character route; ejected objects; monster expressions/dialogue; recoil and wall-impact staging; animation timing; absorption and escape inputs; destination; and encounter reward pitch/order. The monster remaining asleep during puzzles and the deliberate column wake-up are confirmed, so do not add noise-triggered waking or a sleep countdown as established rules.</p>
 <h3 id="new-guardian-proposal-p6-the-crumbling-maze-route-planning">New guardian proposal P6: The Crumbling Maze - route planning</h3>
 <p>A stone guardian keeps its natural-note trap behind a small maze. Floor tiles crumble after the character leaves them. Three switches must be reached before the central trap opens, so the player must plan a route that does not destroy the path still needed. Right-click chooses movement destinations; left-click activates reachable switches. Reaching the released note still requires ABSORB.</p>
 <ul>
@@ -319,7 +348,7 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <li>OPEN: maze layout, switch count, whether a timer is needed, failure presentation, and reset behavior. Three switches is a proposal, not a requirement.</li>
 </ul>
 <h3 id="new-guardian-proposal-p7-the-ink-painter-dodge-and-counter">New guardian proposal P7: The Ink Painter - dodge and counter</h3>
-<p>A doodle monster paints dangerous shapes onto the floor with an oversized brush. The player right-clicks safe places to avoid clearly previewed strokes and ink patches. After each painting attack, the monster pauses to dip its brush; this is the window to left-click a reachable rinse valve. Water washes away part of its ink armor. After several successful counters, the armor opens around its note trap and the player can reach and absorb the wisp. The dramatic monster could end as an indignant tiny ink blob.</p>
+<p>A chibi cartoon monster paints dangerous shapes onto the floor with an oversized brush. The player right-clicks safe places to avoid clearly previewed strokes and ink patches. After each painting attack, the monster pauses to dip its brush; this is the window to left-click a reachable rinse valve. Water washes away part of its ink armor. After several successful counters, the armor opens around its note trap and the player can reach and absorb the wisp. The dramatic monster could end as an indignant tiny ink blob.</p>
 <ul>
 <li>Distinct activity: readable real-time evasion plus choosing a counter opportunity, rather than repeating a password or solving a static machine.</li>
 <li>PROPOSED fairness: telegraph attack areas before they become dangerous, let action windows account for movement time, and start with one simple brush pattern. Give safe recovery space and avoid attacks covering every accessible destination. Define damage/retry without requiring pixel-perfect timing.</li>
@@ -401,7 +430,7 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <li>OPEN: whether pipes are adjusted independently or influence one another, pressure/timer rules, pitch range, and feedback assistance.</li>
 </ul>
 <h3 id="candidate-e-the-noisy-orchestra-separate-musical-layers">Candidate E: The Noisy Orchestra - separate musical layers</h3>
-<p>A conductor monster surrounds the stolen note with a chaotic little orchestra. The player hears a short reference melody leaking from the trap. Five performers play separate looping parts; two together contain that melody, while the others mask it. Left-clicking the performers mutes or solos their parts. Finding and leaving the correct pair playing lets the melody emerge clearly and unlocks the trap. Silenced performers can react with offended doodle expressions.</p>
+<p>A conductor monster surrounds the stolen note with a chaotic little orchestra. The player hears a short reference melody leaking from the trap. Five performers play separate looping parts; two together contain that melody, while the others mask it. Left-clicking the performers mutes or solos their parts. Finding and leaving the correct pair playing lets the melody emerge clearly and unlocks the trap. Silenced performers can react with offended cartoon expressions.</p>
 <ul>
 <li>Distinct activity: isolate instruments and recognize how two musical layers fit together.</li>
 <li>Controls: left-click performer controls; no need for vocal input or fast clicking.</li>
@@ -430,9 +459,18 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 </ul>
 <h2 id="10-visual-audio-and-performance-approach">10. Visual, audio, and performance approach</h2>
 <p>The whole game can be implemented with web technology; external art or music tools are optional. Specific libraries and frameworks are not chosen.</p>
+<h3 id="confirmed-visual-direction">CONFIRMED visual direction</h3>
+<p>On 2026-11-10 the user chose 2D cartoon art, chibi style, and pastel colors, replacing the earlier doodle direction. This applies to the game&#x27;s overall visual presentation. Soft music and the low-spec browser target remain confirmed.</p>
+<h3 id="proposed-visual-treatment-and-open-details">PROPOSED visual treatment and OPEN details</h3>
+<ul>
+<li>Chibi characters and monsters could use large heads, small bodies, rounded forms, and expressive faces. Exact proportions and individual designs remain OPEN.</li>
+<li>A possible palette uses soft peach, mint, lavender, pale blue, and warm cream. These colors are examples, not an approved palette; exact colors and outline treatment remain OPEN.</li>
+<li>Keep interactive objects, hazards, shadows, and feedback legible against pastel scenery. The revised cooking cave must still feel frightening from entrance to throne; the style change does not revise its story or outcomes.</li>
+<li>Use restrained shading, small pose sets, and limited effects as a proposed lightweight approach. No art pipeline has been selected, no new visual assets have been produced, and performance remains unmeasured.</li>
+</ul>
 <div class="table-wrap"><table><thead><tr><th>Area</th><th>PROPOSED approach</th></tr></thead><tbody>
-<tr><td>Characters and monsters</td><td>SVG or Canvas drawings with uneven outlines, expressive eyes, and simple silhouettes</td></tr>
-<tr><td>Environments</td><td>Canvas 2D, muted colors, doodled scenery, subtle paper texture</td></tr>
+<tr><td>Characters and monsters</td><td>SVG, Canvas drawings, or sprites with chibi proportions, expressive faces, rounded silhouettes, and clean outlines</td></tr>
+<tr><td>Environments</td><td>Layered 2D cartoon scenery in pastel colors, with simple shapes and restrained shading</td></tr>
 <tr><td>Animation</td><td>Small pose sets; blinking, bouncing footsteps, swaying plants, flickering flame</td></tr>
 <tr><td>Rain and magic</td><td>Limited droplets, line strokes, musical symbols, inexpensive glows</td></tr>
 <tr><td>Menus and dialogue</td><td>HTML and CSS</td></tr>
@@ -455,7 +493,7 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <h2 id="11-progress-and-next-work">11. Progress and next work</h2>
 <h3 id="completed-design-work">Completed design work</h3>
 <ul>
-<li>Chosen the working game title and broad art/audio direction.</li>
+<li>Chosen the working game title and broad art/audio direction. On 2026-11-10, the user replaced doodle art with 2D cartoon art, chibi characters, and pastel colors. No visual assets or game implementation have been created for this change.</li>
 <li>Recorded the user&#x27;s seven-note story and eight-round structure.</li>
 <li>Replaced repeated home visits with note absorption and remote lantern recovery.</li>
 <li>Reviewed Blow the Candle for technical feasibility and edge cases.</li>
@@ -469,10 +507,19 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <li>Incorporated the confirmed one-natural-note-per-guardian constraint and the user&#x27;s request for non-musical challenges. Parked the earlier musical options and proposed five physical/comic alternatives: The Shell Game, Pepper Soup, The Backwards Vacuum, The Mirror Garden, and Balance the Hoard. Flagged the existing basement password for lore review; no established encounter was silently replaced.</li>
 <li>The user approved The Shell Game and The Backwards Vacuum and replaced Pepper Soup with exact-order cooking for a starving monster, including wrong-meal death/note loss and a family-coercion reveal on success. The selected roster now contains five games. Proposed The Crumbling Maze and The Ink Painter for the last two guardians, and The Storm Engine for the finale; those three are not chosen yet.</li>
 </ul>
+<ul>
+<li>Refined The Shell Game with the user&#x27;s three-shell mixing machine, ambulance-like wrong-choice alarm, immediate hiding, and up to three different monster return reactions. Confirmed that the first two returns include attitude, searching, and putting the note back; the third return catches the player even when hidden. Dialogue, warning, and reset staging remain proposed; post-capture retry rules remain open.</li>
+</ul>
+<ul>
+<li>Revised The Backwards Vacuum with three stacked puzzles over a reverse switch, an always-sleeping puzzle-phase monster, a simple wake-up button and scripted falling-column gag, monster-triggered overloaded ejection and recoil into a wall, unconscious monster, and an absorption animation followed by tunnel escape. Puzzle designs and detailed timing/inputs remain open; no implementation or testing has occurred.</li>
+</ul>
 <h3 id="current-next-step">Current next step</h3>
 <p>Five game concepts are selected. Help the user choose or refine The Crumbling Maze and The Ink Painter for the two remaining guardians and The Storm Engine for the final boss, or replace those proposals with their ideas. Develop the starving monster&#x27;s recipe clues and failure/retry handling without undoing the specified death-and-lost-note outcome. Older alternatives remain parked. Honor one natural-note resource per guardian and resolve the existing password&#x27;s lore before implementation. Do not start full implementation from planning alone; follow the current user request.</p>
 <h3 id="remaining-design-and-validation">Remaining design and validation</h3>
 <ul>
+<li>Backwards Vacuum: design the three stacked puzzles, layer transitions and hints; stage the column gag, monster activation, overloaded ejection, recoil/wall impact and knockout, then absorption and escape; choose inputs and timing without adding an unapproved chase, sleep timer, or recovery countdown.</li>
+<li>Shell Game: first-two-return hiding/detection, alarm-to-arrival timing, reset/reshuffle visibility, caught-player outcome and checkpoint/counter reset, a warning for confirmed third-return capture, and final comic dialogue.</li>
+<li>Refine the pastel 2D chibi cartoon direction: character proportions, palette, outline treatment, environment details, and visual references remain open.</li>
 <li>Select the two remaining guardian concepts and final battle; the current three proposals are not confirmed. Finalize roster order and reward assignments.</li>
 <li>Revised cooking encounter: eight ingredients/recipe, clue design, irreversible serve boundary, starvation timer if any, death/note-loss retry or ending, and voluntary release/absorption.</li>
 <li>Clarify ordinary pitch reproduction versus ownership of the seven unique natural-note energies, especially the existing example basement password. The user has requested non-musical alternatives, not deletion of their two established encounters.</li>
@@ -498,6 +545,10 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <p>Portability: give another AI <code>GAME_DESIGN.md</code>, or the whole APFS folder. It should read this file and <code>AGENTS.md</code>, then continue from section 11. The Windows project path identifies the current location; if the folder moves, update that path and preserve the relative companion filenames. These files carry context; they do not create automatic background syncing across computers or chats.</p>
 <h2 id="13-superseded-directions">13. Superseded directions</h2>
 <ul>
+<li>Backwards Vacuum valve/hose configuration and player-triggered immediate release: replaced by three stacked puzzles hiding a reverse switch, a deliberately awakened monster, and the monster activating the reversed machine before note recovery and tunnel escape.</li>
+<li>Shell Game ambiguity about the three-return cap: resolved by the user. The first two inspections allow hiding and reset the note; the third guarantees capture even when hidden. The earlier proposed third-visit line threatening one more alarm is replaced with a capture gag.</li>
+<li>Shell Game wrong choices merely revealing junk and making the monster laugh: replaced by the mixing machine&#x27;s ambulance-like alarm, the monster returning to investigate, and immediate hiding.</li>
+<li>Doodle art style: replaced on 2026-11-10 by 2D cartoon art with chibi characters and pastel colors. Earlier doodle-specific presentation suggestions should follow the new direction.</li>
 <li>Collecting ordinary village noises as the main objective: replaced by seven stolen base notes and monster encounters.</li>
 <li>A lonely creature collecting sounds for a lullaby as the main ending: replaced by the eighth boss and army.</li>
 <li>Repeated playable returns home between bosses: rejected in favor of an outward journey and remote recovery.</li>
@@ -524,6 +575,11 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <tr><td>0.9</td><td>2026-10-23: proposed five distinct musical mini-games at the user&#x27;s request; all remain unselected options</td></tr>
 <tr><td>0.10</td><td>Confirmed one natural note per guardian, shifted current ideation to five non-musical physical/comic puzzles, parked earlier music candidates, and flagged the basement password for lore consistency</td></tr>
 <tr><td>0.11</td><td>Recorded three more selected concepts, the user&#x27;s starving-monster cooking rewrite and family-threat motive; proposed two remaining guardian games and a three-phase final Storm Engine battle</td></tr>
+<tr><td>0.12</td><td>2026-11-10: replaced doodle art with the user&#x27;s confirmed pastel 2D cartoon/chibi direction; updated visual suggestions and retained open art details and untested performance status</td></tr>
+<tr><td>0.13</td><td>2026-11-10: refined The Shell Game with a three-shell mixing machine, ambulance-like wrong-choice alarm, hiding, and up to three distinct comic monster returns; recorded proposed dialogue and open retry/cap rules</td></tr>
+<tr><td>0.14</td><td>2026-11-10: confirmed two Shell Game inspections with attitude, searching, and note reset; third return guarantees capture even in hiding; revised proposed final gag and left post-capture retry rules open</td></tr>
+<tr><td>0.15</td><td>2026-11-10: revised The Backwards Vacuum with three stacked puzzles, a bottom reverse switch, sleeping monster, wake-up button and falling-column gag, monster-triggered ejection, note recovery and tunnel escape; puzzle specifics remain open</td></tr>
+<tr><td>0.16</td><td>2026-11-10: confirmed that the Backwards Vacuum&#x27;s overloaded ejection recoils the monster into a wall and knocks it unconscious before the character&#x27;s absorption animation and tunnel escape</td></tr>
 </tbody></table></div>
 <h2 id="15-technical-references">15. Technical references</h2>
 <ul>
@@ -542,5 +598,5 @@ code{font:0.9em Consolas,monospace;overflow-wrap:anywhere;background:#eef0e6;pad
 <li><a href="https://motion.dev/docs/ai-kit-install">Motion AI Kit installation and free/paid features</a></li>
 <li><a href="https://motion.dev/docs/animate">Motion JavaScript animation API</a></li>
 </ul>
-<footer>Generated from GAME_DESIGN.md. Both editions share version 0.11. All game features remain in planning unless explicitly recorded as implemented.</footer>
+<footer>Generated from GAME_DESIGN.md. Both editions share version 0.16. All game features remain in planning unless explicitly recorded as implemented.</footer>
 </main></body></html>
