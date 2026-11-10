@@ -3,7 +3,7 @@
 ## Project record
 
 - Project abbreviation: APFS.
-- Version: 0.18.
+- Version: 0.19.
 - Updated: 2026-11-10 (Asia/Bangkok).
 - Project folder: `C:\Users\JoseKim\Desktop\APFS`.
 - Stage: story and gameplay design; no game implementation or performance testing yet.
@@ -64,7 +64,7 @@ The final boss is the Monster King, the most powerful monster in the world. All 
 - Location of the final battle and whether the character returns home once at the end.
 - How the army is represented and what happens after victory.
 - Reward pitches for encounters 2-7 and exact naming scheme. Order 1-5 is confirmed; C remains the candle reward.
-- Instruments lose the stolen natural pitches and retain sharp notes. The old basement password uses C, G, and B, so its sequence/playback rules need revision. Which recovered natural pitches return to instruments, and when, remains OPEN; do not assume unrestricted reproduction or extra natural-note resources.
+- Instruments lose the stolen natural pitches and retain sharp notes. The confirmed all-sharp password resolves the earlier basement melody conflict. Unavailable-white-key behavior and which recovered natural pitches return to instruments, and when, remain OPEN; do not assume unrestricted reproduction or extra natural-note resources.
 
 ## 3. Notes and village lantern
 
@@ -197,11 +197,11 @@ All adjustments above are proposals unless the user explicitly finalizes them. E
 
 ### CONFIRMED encounter concept
 
-A monster keeps a stolen natural note in its basement. The character watches the monster leave the basement and play a melody to lock it. Each played note is heard and its name is displayed. The user's example is `C, D#, G, A#, B, B`; it is an example, not a finalized password or length.
+A monster keeps a stolen natural note in its basement. The character watches the monster leave the basement and play a melody to lock it. Each played note is heard and its name is displayed. CONFIRMED password for encounter 2: `C#, F#, G#, D#, A#, A#` (C? ? F? ? G? ? D? ? A? ? A?). This is a fixed six-note sequence selected by the user. It replaces the historical example `C, D#, G, A#, B, B`.
 
-CONFIRMED lore update: instruments lose stolen natural pitches, leaving sharp notes. The historical example `C, D#, G, A#, B, B` therefore needs revision before use. Keep the named demonstration and unlabeled twelve-key lock. Exact password and unavailable-white-key behavior remain OPEN, including whether recovered C becomes available by encounter 2. Do not silently remove keys, add labels, fabricate missing pitches, or assume the guardian can play other stolen natural notes.
+CONFIRMED lore: instruments lose stolen natural pitches, leaving sharp notes. The chosen password uses only sharp notes and needs no unavailable natural pitch. Keep the named demonstration and unlabeled twelve-key lock. Unavailable-white-key behavior remains OPEN, including whether recovered C becomes available by encounter 2. Do not silently remove keys, add labels, fabricate missing pitches, or assume the guardian can play other stolen natural notes.
 
-PROPOSED lore-compatible password: use only the five sharp pitches C#, D#, F#, G#, and A#. Example: `C#, F#, G#, D#, A#, A#`. This is a melodic option discussed with the user, not a selected final sequence. Keep all twelve unlabeled piano keys; behavior when an unavailable white key is pressed remains OPEN. Do not assume the optional earlier recovered C is needed for this password.
+The final two A# notes require two separate keypresses; holding the key does not enter both. Octave/register, rhythm requirement, playback pacing, replay behavior, and countdown duration remain OPEN. Keep all twelve unlabeled keys; selecting this melody does not add key-position hints.
 
 After the monster leaves, the character can approach the door and click its lock without alerting the monster. The lock opens a piano-style keyboard with seven white keys and five black keys. The lock has no note-name labels. The player must reproduce the remembered melody on that unlabeled keyboard using the sounds, shown names from the demonstration, and their knowledge or discovery of key positions.
 
@@ -235,7 +235,7 @@ This encounter uses mouse interaction and in-game sound playback. It does not re
 2. Safe interaction: approaching the door and opening the lock interface do not start the countdown.
 3. First press: start the door countdown exactly once on the first deliberate keypress, before judging that note. All twelve keys remain playable, including incorrect ones.
 4. Sequence match: maintain a progress index. A correct next note advances it and shows success feedback. A wrong note sets the index back to zero and clears all progress feedback, while the existing countdown continues. Do not silently reinterpret that wrong key as the first note of a new sequence.
-5. Repeated pitches: `B, B` requires two separate presses of B. A held button does not fill multiple sequence positions. Proposed feedback is a brief key flash plus unlabeled progress dots so repeated presses remain readable without revealing note-name labels.
+5. Repeated pitches: the final `A#, A#` requires two separate presses of A#. A held button does not fill multiple sequence positions. Proposed feedback is a brief key flash plus unlabeled progress dots so repeated presses remain readable without revealing note-name labels.
 6. Success: the full correct sequence before expiry stops the door timer and commits basement entry. Protect the forced jump/locking animation from a late door-timeout event.
 7. Expiry: the player is caught and retries. The exact restart presentation and whether the demonstration is repeated or replayable remain OPEN.
 
@@ -318,7 +318,7 @@ Schedule demonstration playback using the audio clock and synchronize displayed 
 ### OPEN decisions specific to this encounter
 
 - Assign the reward note; this is confirmed encounter 2.
-- Choose melody length, octave/register policy, rhythm requirement, and replay/hint behavior. The six-note example is not yet a fixed password.
+- The six-note password is fixed: `C#, F#, G#, D#, A#, A#`. Choose octave/register policy, rhythm requirement, playback pacing, and replay/hint behavior.
 - Set the door countdown and confirm the reading that a wrong-note input reset does not reset it.
 - Set the basement countdown and confirm whether it is a separate full budget.
 - Confirm the five distinct sharp-note inventory, column interaction distances, audition duration, and any mandatory column order.
@@ -328,7 +328,7 @@ Schedule demonstration playback using the audio clock and synchronize displayed 
 - Basement failure restarts the whole encounter from melody observation and the lock. Decide whether random placement changes on retry.
 - Stage the fixed exit scene, decide its final activation input and when the timer stops. Each note grants one charge then goes to the lantern; it is not stored in the character.
 - Choose the final-boss-provided capture device/ability and the visible trapped-air art treatment.
-- Revise the historical password and unavailable-white-key behavior to follow the confirmed missing-natural-pitches rule.
+- Define unavailable-white-key behavior under the missing-natural-pitches rule; the confirmed all-sharp password resolves the old melody conflict.
 
 ## 8. Additional guardians, final-battle proposals, and parked alternatives
 
@@ -624,13 +624,13 @@ PROPOSED combination: Product Design for visual exploration, Canvas 2D for the g
 
 ### Current next step
 
-Develop section 16: each monster's entry/escape scene, personal story, and loyalty or coercion, following confirmed order 1-5. Select the remaining guardians and final-battle mechanics separately. Revise the basement password for missing natural pitches; design the three Vacuum puzzles. Keep encounters straightforward with full current-encounter failure restarts and warnings. Do not start full implementation from planning alone.
+Develop section 16: each monster's entry/escape scene, personal story, and loyalty or coercion, following confirmed order 1-5. Select the remaining guardians and final-battle mechanics separately. Use the confirmed all-sharp basement password, define unavailable-white-key behavior, and design the three Vacuum puzzles. Keep encounters straightforward with full current-encounter failure restarts and warnings. Do not start full implementation from planning alone.
 
 ### Remaining design and validation
 
 - Scene staging and individual backstories in section 16; protagonist identity and king's theft motive.
 - Select guardians 6 and 7 and final battle. The Crumbling Maze, The Ink Painter, and The Storm Engine remain unselected.
-- Resolve the historical basement password and unavailable white-key behavior; decide which recovered natural pitches return to instruments and when.
+- Define unavailable white-key behavior and when recovered natural pitches return to instruments. The six-note all-sharp basement password is confirmed.
 - Design three stacked Vacuum puzzles and simple wake-to-knockout cutscene; choose clip versus authored animation after evaluating web performance.
 - Cooking ingredients, exact recipe, clues, pre-serving warning, and success/failure staging. Failure restarts the entire encounter.
 - Shell hiding/search rules and timing, distinct reaction text, warning before the third-return capture, and whole-encounter restart presentation.
@@ -657,6 +657,7 @@ Portability: give another AI `GAME_DESIGN.md`, or the whole APFS folder. It shou
 
 ## 13. Superseded directions
 
+- Basement password example `C, D#, G, A#, B, B` and unselected status of the all-sharp alternative: replaced by the confirmed six-note password `C#, F#, G#, D#, A#, A#`.
 - Instruments freely imitating stolen natural pitches, notes staying inside the protagonist, stored-note tunnel recharge, free destination selection, undecided order 1-5 and intermediate-stage failure checkpoints: replaced by the confirmed rules in version 0.17.
 - Backwards Vacuum valve/hose configuration and player-triggered immediate release: replaced by three stacked puzzles hiding a reverse switch, a deliberately awakened monster, and the monster activating the reversed machine before note recovery and tunnel escape.
 - Shell Game ambiguity about the three-return cap: resolved by the user. The first two inspections allow hiding and reset the note; the third guarantees capture even when hidden. The earlier proposed third-visit line threatening one more alarm is replaced with a capture gag.
@@ -697,6 +698,7 @@ Portability: give another AI `GAME_DESIGN.md`, or the whole APFS folder. It shou
 | 0.16 | 2026-11-10: confirmed that the Backwards Vacuum's overloaded ejection recoils the monster into a wall and knocks it unconscious before the character's absorption animation and tunnel escape |
 | 0.17 | 2026-11-10: confirmed missing natural pitches, Monster King and mixed loyalties, direct note transfer and one-charge fixed transitions, whole-encounter restarts, warnings and order 1-5; added scene/backstory section and simple web cutscene production preference |
 | 0.18 | 2026-11-10: recorded an all-sharp melody as a proposed lore-compatible piano password; exact sequence and unavailable-white-key behavior remain unselected/open |
+| 0.19 | 2026-11-10: confirmed encounter 2 password C#, F#, G#, D#, A#, A#; updated repeated-key guidance and resolved the old melody lore conflict; unavailable-white-key behavior and timing remain open |
 
 ## 15. Technical references
 
@@ -737,7 +739,7 @@ OPEN monster story: name, why it watches the wall, respect versus forced service
 
 CONFIRMED scene: observe the guardian's named melody at the lock; solve the unlabeled piano lock; jump into the basement and become locked in; search the shelf while the guardian tries to break through; absorb the target and use the fixed escape. Failure in either stage restarts the whole encounter from its beginning.
 
-OPEN monster story: name, why it stores notes in a basement, individual loyalty/coercion, and what the player learns about it. Revise the historical multi-natural-note password for the sound rule without replacing the established lock.
+OPEN monster story: name, why it stores notes in a basement, individual loyalty/coercion, and what the player learns about it. The confirmed password is `C#, F#, G#, D#, A#, A#`; the earlier multi-natural-note example is superseded. Unavailable white-key behavior remains OPEN.
 
 ### Encounter 3: The Starving Monster's Meal
 
